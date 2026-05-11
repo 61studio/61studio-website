@@ -7,43 +7,35 @@ import Image from "next/image"
 const films = [
   {
     id: 1,
-    title: "The Last Light",
-    location: "Waitemata Harbour",
-    year: "2024",
-    // Moody harbour at dusk - quiet, contemplative
-    thumbnail:
-      "https://images.unsplash.com/photo-1500375592092-40eb2168fd21?w=800&q=80",
-    videoUrl: "#",
+  title: "Wedding Films",
+  location: "Cinematic Wedding Stories",
+  year: "2024",
+  thumbnail: "/wedding.jpg",
+  videoUrl: "#",
   },
   {
     id: 2,
-    title: "Silent Roads",
-    location: "Coromandel",
-    year: "2024",
-    // Misty coastal road - windy, overcast feel
-    thumbnail:
-      "https://images.unsplash.com/photo-1501594907352-04cda38ebc29?w=800&q=80",
-    videoUrl: "#",
+    title: "Commercial",
+location: "Brand & Advertising",
+year: "2024",
+thumbnail: "/commercial.jpg",
+videoUrl: "#",
   },
   {
     id: 3,
-    title: "Morning Rituals",
-    location: "Ponsonby",
-    year: "2023",
-    // Quiet interior light - window, curtains, soft morning
-    thumbnail:
-      "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=800&q=80",
+    title: "Street Stories",
+    location: "Film Inspired Moments",
+    year: "2024",
+    thumbnail: "/street.jpg",
     videoUrl: "#",
   },
   {
     id: 4,
-    title: "Between Tides",
-    location: "Piha",
-    year: "2023",
-    // Dramatic black sand beach - moody, powerful
-    thumbnail:
-      "https://images.unsplash.com/photo-1505142468610-359e7d316be0?w=800&q=80",
-    videoUrl: "#",
+    title: "Visual Stories",
+location: "Personal Cinematic Work",
+year: "2024",
+thumbnail: "/stories.jpg",
+videoUrl: "#",
   },
 ]
 
