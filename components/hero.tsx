@@ -4,28 +4,49 @@ import Image from "next/image"
 import { useEffect, useState } from "react"
 
 export function Hero() {
+  const heroImages = [
+    "/hero-bg.jpg",
+    "/hero-1.jpg",
+    "/hero-2.jpg",
+    "/hero-3.jpg",
+    "/hero-4.jpg",
+    "/hero-5.jpg",
+    "/hero-6.jpg",
+  ]
   const [isLoaded, setIsLoaded] = useState(false)
+  const [currentImage, setCurrentImage] = useState(0)
+useEffect(() => {
+  const interval = setInterval(() => {
+    setCurrentImage((prev) => (prev + 1) % heroImages.length)
+  }, 5000)
 
-  useEffect(() => {
-    // Trigger animation after initial load
-    const timer = setTimeout(() => setIsLoaded(true), 100)
-    return () => clearTimeout(timer)
-  }, [])
+  return () => clearInterval(interval)
+}, [])
+
+useEffect(() => {
+  const timer = setTimeout(() => setIsLoaded(true), 100)
+  return () => clearTimeout(timer)
+}, [])
 
   return (
     <section className="relative h-screen w-full overflow-hidden">
       {/* Background Image Container - with push in animation */}
       <div className={`absolute inset-0 ${isLoaded ? 'cinematic-push-in' : ''}`}>
-        <Image
-          src="/hero-bg.jpg"
-          alt="Street scene"
-          fill
-          priority
-          className="object-cover"
-          style={{
-            filter: 'brightness(0.82) contrast(1.08) saturate(0.7) sepia(0.1)'
-          }}
-        />
+      {heroImages.map((image, index) => (
+  <Image
+    key={image}
+    src={image}
+    alt="Street scene"
+    fill
+    priority={index === 0}
+    className={`object-cover transition-opacity duration-[1800ms] ease-in-out ${
+      index === currentImage ? "opacity-100" : "opacity-0"
+    }`}
+    style={{
+      filter: "brightness(0.82) contrast(1.08) saturate(0.7) sepia(0.1)",
+    }}
+  />
+))}
       </div>
 
       {/* Kodak 2383 Color Grade Overlay - warm highlights, cyan shadows */}
@@ -57,12 +78,14 @@ export function Hero() {
         <Image
           src="/logo.png"
           alt="61 Films - Cinematic Stories"
-          width={240}
-          height={96}
+          width={180}
+          height={72}
           className="h-auto w-28 brightness-0 invert opacity-20 md:w-32 lg:w-36"
           priority
         />
-
+<p className="mt-4 text-[6px] uppercase tracking-[0.55em] text-white/20">
+  Films from Auckland & somewhere in memory.
+</p>
         {/* Scroll indicator - extremely subtle */}
         <div className="absolute bottom-16 left-1/2 -translate-x-1/2 md:bottom-20">
           <div className="flex flex-col items-center gap-4">

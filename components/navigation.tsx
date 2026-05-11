@@ -37,10 +37,10 @@ export function Navigation() {
             <Image
               src="/logo.png"
               alt="61 Films"
-              width={100}
-              height={40}
+              width={220}
+              height={88}
               className={`h-6 w-auto brightness-0 invert transition-opacity duration-700 md:h-7 ${
-                isScrolled ? "opacity-90" : "opacity-40"
+                isScrolled ? "opacity-80" : "opacity-40"
               }`}
               priority
             />
